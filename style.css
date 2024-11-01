@@ -7,22 +7,30 @@ body html {
         overflow: hidden;
     /* background-image: url(https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExenM5MTRpeHBwcXh4OHRmYmE0YmE1aWc1djZsa2FneDN0cmoxM2x5ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YRcXl6VfNhCorklI0R/giphy.webp); */
 }
+img {
+    max-width: 30%; /* O el porcentaje que desees */
+    height: auto;
+}
 main {
-    background-image: url(./MOSHED-2024-10-31-3-5-34.gif);
+    background-image: url(./MOSHED-2024-10-31-3-5-34.gif);   
+}
+main, div { 
     display: flex;
-      justify-content: center;
-      flex-direction: column;
-      background-size: cover;
-      align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    background-size: cover;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
 }
 .hidden {
     display: none;
   }  
+
+
 h1 { 
     color: azure;
     font-family:"Road Rage", sans-serif;
