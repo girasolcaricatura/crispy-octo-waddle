@@ -30,8 +30,26 @@ main, div {
     display: none;
   }  
 
-
-h1 { 
-    color: azure;
-    font-family:"Road Rage", sans-serif;
-}
+  .content {
+    display: flex;
+    justify-content: center;  /* Centra horizontalmente */
+    align-items: center;      /* Centra verticalmente */
+    height: 100vh;           /* Toma el 100% de la altura de la ventana */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente si lo deseas */
+  }
+  
+  img {
+    max-width: 30%;          /* Ajuste estándar para pantallas grandes */
+    height: auto;            /* Mantiene la proporción de la imagen */
+  }
+  
+  /* Estilos específicos para móviles */
+  @media (max-width: 768px) { /* Se activa para pantallas de 768px o menos */
+    img {
+      max-width: 80%;        /* Aumenta el tamaño máximo del gif en móviles */
+    }
+  
+    .content {
+      height: 100vh;        /* Mantén la altura para móviles */
+    }
+  }

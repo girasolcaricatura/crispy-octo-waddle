@@ -1,44 +1,48 @@
-document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', function() {
     const gifs = [
-      './textos/estrofa1.png',
-      './textos/estrofa2.png',
-      './textos/estrofa3.png',
-      './textos/estrofa5.png',
-      './textos/estrofa6.png',
-      './textos/estrofa7.png',
-      './textos/estrofa9.png',
-      './textos/estrofa8.png',
-      './textos/estrofa10.png',
-      './textos/estrofa11.png',// Agrega más gifs según sea necesario
+        './textos/estrofa1.png',
+        './textos/estrofa2.png',
+        './textos/estrofa3.png',
+        './textos/estrofa5.png',
+        './textos/estrofa6.png',
+        './textos/estrofa7.png',
+        './textos/estrofa9.png',
+        './textos/estrofa8.png',
+        './textos/estrofa10.png',
+        './textos/estrofa11.png', // Agrega más gifs según sea necesario
     ];
     
     let currentIndex = 0;
-    const content = document.querySelector('.content');
-    const gifElement = document.getElementById('gif');
+
+  const content = document.querySelector('.content');
+  const gifElement = document.getElementById('gif');
+
+  document.addEventListener('click', function() {
     const audio = document.getElementById('ruidoBlanco');
 
-    function showNextGif() {
-      // Muestra el contenedor y reproduce el audio en el primer clic
+    // Reproduce el ruido blanco y maneja el primer clic
+    audio.play().then(() => {
+      console.log('Ruido blanco reproduciéndose.');
+
+      // Muestra el contenedor si es la primera vez que se hace clic
       if (currentIndex === 0) {
         content.classList.remove('hidden');
-        audio.play().then(() => {
-          console.log('Ruido blanco reproduciéndose.');
-        }).catch(error => {
-          console.error('Error al reproducir el sonido:', error);
-        });
       }
 
-      // Cambia el gif actual al siguiente en la lista y verifica que el cambio ocurra
-      gifElement.src = gifs[currentIndex];
-      console.log(`Mostrando GIF: ${gifs[currentIndex]}`); // Mensaje de depuración
-      currentIndex++;
+      // Cambia el gif solo si no hemos llegado al final de la lista
+      if (currentIndex < gifs.length) {
+        gifElement.src = gifs[currentIndex];
+        currentIndex++;
+      }
 
-      // Si se han mostrado todos los gifs, reinicia el ciclo
+      // Si llegamos al final, puedes hacer algo opcional
       if (currentIndex >= gifs.length) {
-        currentIndex = 0; 
+        console.log('Has visto todos los gifs.');
+        // Aquí puedes agregar lógica si quieres mostrar un mensaje o hacer algo más
       }
-    }
-
-    // Detecta el primer clic para mostrar el primer gif y reproducir el audio
-    document.addEventListener('click', showNextGif);
+    }).catch(error => {
+      console.error('Error al reproducir el sonido:', error);
+    });
   });
+});
